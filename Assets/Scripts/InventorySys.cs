@@ -6,6 +6,7 @@ public class InventorySys : ScriptableObject
 {
     public int maxItems = 5;
     public List<ItemData> items = new();
+    public GameObject player;
     
     private void Start()
     {
@@ -33,14 +34,18 @@ public class InventorySys : ScriptableObject
     {
         //selected item from inv/hotbar is removed. This is used when using an item like using an item in a recipe. The item should be transferred to 
         //wherever it is used like into the cauldron.
+
         ItemData remItem = items[index];
         items[index] = null;
         return remItem;
     }
 
-    public void DropItem(ItemData item)
+    public void DropItem(int index)
     {
         //selected item is spawned in a suitable area near player, ideally in front and dropped. This item should have the same properties as it did in the inv
         //and before it was put into the inv.
+
+        ItemData droppedItem = RemoveItem(index);
+        Instantiate(droppedItem.gameObject, player.transform);
     }
 }
