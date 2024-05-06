@@ -1335,6 +1335,29 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &901649701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 3906974422506416601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &901649702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901649701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867591cdca56eac47a60350a194c0eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPrefab: {fileID: 5263541183657605747, guid: dde9702a30f823142aab7b5a1c80ce6e,
+    type: 3}
+  InteractablePointer: {fileID: 21300000, guid: 8e4a8252da50bed4dbc6f47ae32e117a,
+    type: 3}
+  NormalPointer: {fileID: 21300000, guid: 6f7363adc2f0a0642a563f0029c6fb97, type: 3}
 --- !u!1 &952663927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,13 +2646,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827717343}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.24}
+  m_LocalRotation: {x: -0, y: -0.42051938, z: -0, w: 0.9072836}
+  m_LocalPosition: {x: -2.17, y: 0, z: 1.68}
   m_LocalScale: {x: 5, y: 0.01, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 495524069}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -49.735, z: 0}
 --- !u!65 &1827717345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39679,7 +39702,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 901649702}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1001 &8951048027174144360
 PrefabInstance:
@@ -39780,6 +39807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI_EventSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992104595683069851, guid: f0271df749728104eac22c3d897fd8ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8063073397250431797, guid: f0271df749728104eac22c3d897fd8ce,
         type: 3}

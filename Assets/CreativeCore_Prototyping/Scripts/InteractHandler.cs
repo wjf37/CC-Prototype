@@ -9,11 +9,9 @@ using UnityEngine.UI;
 public class InteractHandler : MonoBehaviour
 {
     public GameObject UIPrefab; 
-
     [FormerlySerializedAs("InteractableIcone")]
     public Sprite InteractablePointer;
     public Sprite NormalPointer;
-    
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
 
