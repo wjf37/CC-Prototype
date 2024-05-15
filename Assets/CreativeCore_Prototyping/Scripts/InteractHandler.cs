@@ -14,6 +14,7 @@ public class InteractHandler : MonoBehaviour
     public Sprite NormalPointer;
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
+    private Ray ray;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +34,16 @@ public class InteractHandler : MonoBehaviour
             m_PointerImage = centerPoint.GetComponent<Image>();
             m_OriginalPointerSize = centerPoint.transform.localScale;
         }
+        
+        ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //If the player is pointing at an object in range to be interacted with the object gets added to a list of targets that can be interacted with.
+        //
         OnInteract[] targets = null;
-        var ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
         RaycastHit hit;
 
         bool displayInteractable = false;
@@ -64,16 +68,6 @@ public class InteractHandler : MonoBehaviour
             }
         }
         
-        if (targets != null && 
-            (Mouse.current.leftButton.wasPressedThisFrame || Keyboard.current.eKey.wasPressedThisFrame ))
-        {
-            foreach (var target in targets)
-            {
-                if(target.isActiveAndEnabled)
-                    target.Interact();
-            }
-        }
-
         if (displayInteractable)
         {
             m_PointerImage.sprite = InteractablePointer;
@@ -84,6 +78,25 @@ public class InteractHandler : MonoBehaviour
             m_PointerImage.sprite = NormalPointer;
             m_PointerImage.color = Color.white;
             m_PointerImage.transform.localScale = m_OriginalPointerSize;
+        }
+    }
+
+    void OnInteraction(InputAction.CallbackContext callbackContext)
+    {
+        if(callbackContext.performed){
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 2.0f))
+            {
+                
+            }
+            /*if (targets != null && targets.Length > 0)
+            {
+                foreach (var target in targets)
+                {
+                    if(target.isActiveAndEnabled)
+                        target.Interact();
+                }
+            }*/
         }
     }
 }
