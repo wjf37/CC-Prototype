@@ -15,6 +15,7 @@ public class InteractHandler : MonoBehaviour
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
+    bool displayInteractable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +47,11 @@ public class InteractHandler : MonoBehaviour
         OnInteract[] targets = null;
         RaycastHit hit;
 
-        bool displayInteractable = false;
+        displayInteractable = false;
         if (Physics.Raycast(ray, out hit, 2.0f))
         {
             var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
+            //oninteract will need different versions for herbs and the tools
 
             if (interacts.Length > 0)
             {
@@ -81,22 +83,30 @@ public class InteractHandler : MonoBehaviour
         }
     }
 
-    void OnInteraction(InputAction.CallbackContext callbackContext)
+    void OnInteraction()
     {
-        if(callbackContext.performed){
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 2.0f))
-            {
-                
-            }
-            /*if (targets != null && targets.Length > 0)
+        /*the logic for detecting whether the raycast has hit an interactable object is already handled with the crosshair changing. Would
+        it be a better idea to figure out how to reuse the logic rather than rewriting it. More time will have to be spent on it but perhaps
+        it will make it easier in the future to implement something like this well. Whereas I would just continuously be using a less efficient
+        method to save time now.*/
+    
+        OnInteract[] targets = null;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 2.0f))
+        {
+            var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
+            targets = interacts;
+            
+            if (targets != null && targets.Length > 0)
             {
                 foreach (var target in targets)
                 {
                     if(target.isActiveAndEnabled)
                         target.Interact();
                 }
-            }*/
+            }
         }
     }
 }
