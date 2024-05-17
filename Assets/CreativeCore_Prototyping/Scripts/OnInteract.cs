@@ -19,7 +19,7 @@ public class OnInteract : MonoBehaviour
         m_Timer = cooldown;
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         if(isOneShot && m_HasBeenTriggered)
             return;
@@ -36,5 +36,8 @@ public class OnInteract : MonoBehaviour
     {
         if (m_HasBeenTriggered)
             m_Timer += Time.deltaTime;
+
+        if (m_HasBeenTriggered && m_Timer >= cooldown)
+            m_HasBeenTriggered =false;
     }
 }
