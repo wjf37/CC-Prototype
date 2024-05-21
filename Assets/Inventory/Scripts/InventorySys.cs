@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Inv", menuName = "Inventory System/Inv")]
 public class InventorySys : ScriptableObject
 {
     public int maxItems = 5;
     public List<ItemData> items = new();
     public GameObject player;
+    public GameObject invBar;
     
     private void Start()
     {
@@ -49,3 +51,5 @@ public class InventorySys : ScriptableObject
         Instantiate(droppedItem.gameObject, player.transform);
     }
 }
+
+
