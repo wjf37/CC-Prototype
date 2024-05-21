@@ -7,8 +7,6 @@ public class InventorySys : ScriptableObject
 {
     public int maxItems = 5;
     public List<ItemData> items = new();
-    public GameObject player;
-    public GameObject invBar;
     
     private void Start()
     {
@@ -42,13 +40,13 @@ public class InventorySys : ScriptableObject
         return remItem;
     }
 
-    public void DropItem(int index)
+    public void DropItem(int index, Transform transform)
     {
         //selected item is spawned in a suitable area near player, ideally in front and dropped. This item should have the same properties as it did in the inv
         //and before it was put into the inv.
 
         ItemData droppedItem = RemoveItem(index);
-        Instantiate(droppedItem.gameObject, player.transform);
+        Instantiate(droppedItem.gameObject, transform);
     }
 }
 

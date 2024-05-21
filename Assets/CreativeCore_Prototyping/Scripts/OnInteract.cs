@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(Collider))]
 public class OnInteract : MonoBehaviour
 {
     public bool isOneShot;

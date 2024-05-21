@@ -2068,6 +2068,8 @@ MonoBehaviour:
   InteractablePointer: {fileID: 21300000, guid: 8e4a8252da50bed4dbc6f47ae32e117a,
     type: 3}
   NormalPointer: {fileID: 21300000, guid: 6f7363adc2f0a0642a563f0029c6fb97, type: 3}
+  inv: {fileID: 0}
+  uiBar: {fileID: 0}
 --- !u!1 &952663927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1159249874}
   - component: {fileID: 1159249875}
+  - component: {fileID: 1159249876}
   m_Layer: 0
   m_Name: Herb2 (Leaves)
   m_TagString: Untagged
@@ -2726,6 +2729,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1159249876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159249873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5376058f4be26844d983f977f4b87554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOneShot: 0
+  cooldown: 0
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ingredient: {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}
 --- !u!1 &1208940659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,6 +3020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373235766}
   - component: {fileID: 1373235767}
+  - component: {fileID: 1373235768}
   m_Layer: 0
   m_Name: Herb3 (Fruit)
   m_TagString: Untagged
@@ -3049,6 +3071,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1373235768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373235765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5376058f4be26844d983f977f4b87554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOneShot: 0
+  cooldown: 0
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ingredient: {fileID: 11400000, guid: e96232eeba6261c41ba20d373589f09b, type: 2}
 --- !u!1 &1559508228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +3890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1837481217}
   - component: {fileID: 1837481218}
+  - component: {fileID: 1837481219}
   m_Layer: 0
   m_Name: Herb1 (Root)
   m_TagString: Untagged
@@ -3900,6 +3941,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1837481219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837481216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5376058f4be26844d983f977f4b87554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOneShot: 0
+  cooldown: 0
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ingredient: {fileID: 11400000, guid: 7adca6744af61c541a8a65098ad0b31d, type: 2}
 --- !u!43 &1869612404
 Mesh:
   m_ObjectHideFlags: 0
@@ -40808,6 +40867,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1211605389}
+    - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 58.70864
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40962,6 +41026,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: field of view
+      value: 58.70864
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}

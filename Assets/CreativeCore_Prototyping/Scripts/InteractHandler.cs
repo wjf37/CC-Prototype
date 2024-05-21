@@ -12,9 +12,12 @@ public class InteractHandler : MonoBehaviour
     [FormerlySerializedAs("InteractableIcone")]
     public Sprite InteractablePointer;
     public Sprite NormalPointer;
+    [SerializeField] InventorySys inv;
+    [SerializeField] GameObject uiBar;
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
+    private float rayLength = 2.0f;
     bool displayInteractable = false;
 
     // Start is called before the first frame update
@@ -36,7 +39,6 @@ public class InteractHandler : MonoBehaviour
             m_OriginalPointerSize = centerPoint.transform.localScale;
         }
         
-        ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
     }
 
     // Update is called once per frame
@@ -44,11 +46,12 @@ public class InteractHandler : MonoBehaviour
     {
         //If the player is pointing at an object in range to be interacted with the object gets added to a list of targets that can be interacted with.
         //
+        ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
         OnInteract[] targets = null;
         RaycastHit hit;
 
         displayInteractable = false;
-        if (Physics.Raycast(ray, out hit, 2.0f))
+        if (Physics.Raycast(ray, out hit, rayLength))
         {
             var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
             //oninteract will need different versions for herbs and the tools
@@ -94,7 +97,7 @@ public class InteractHandler : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 2.0f))
+        if (Physics.Raycast(ray, out hit, rayLength))
         {
             var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
             targets = interacts;
