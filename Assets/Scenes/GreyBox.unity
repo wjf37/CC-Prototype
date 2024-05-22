@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 126961491}
   - component: {fileID: 126961490}
   - component: {fileID: 126961489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb1 Model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 233515181}
   - component: {fileID: 233515180}
   - component: {fileID: 233515179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb1 Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1495,7 +1495,7 @@ GameObject:
   - component: {fileID: 495524072}
   - component: {fileID: 495524071}
   - component: {fileID: 495524070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb2 Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621724063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 697391309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cauldron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2068,6 +2068,9 @@ MonoBehaviour:
   InteractablePointer: {fileID: 21300000, guid: 8e4a8252da50bed4dbc6f47ae32e117a,
     type: 3}
   NormalPointer: {fileID: 21300000, guid: 6f7363adc2f0a0642a563f0029c6fb97, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
   inv: {fileID: 0}
   uiBar: {fileID: 0}
 --- !u!1 &952663927
@@ -2084,7 +2087,7 @@ GameObject:
   - component: {fileID: 952663931}
   - component: {fileID: 952663930}
   - component: {fileID: 952663929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2502,7 @@ GameObject:
   - component: {fileID: 972320472}
   - component: {fileID: 972320471}
   - component: {fileID: 972320470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2679,7 +2682,7 @@ GameObject:
   - component: {fileID: 1159249874}
   - component: {fileID: 1159249875}
   - component: {fileID: 1159249876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb2 (Leaves)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2917,7 +2920,7 @@ GameObject:
   - component: {fileID: 1298636284}
   - component: {fileID: 1298636283}
   - component: {fileID: 1298636282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb3 Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3021,7 +3024,7 @@ GameObject:
   - component: {fileID: 1373235766}
   - component: {fileID: 1373235767}
   - component: {fileID: 1373235768}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb3 (Fruit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3205,7 +3208,7 @@ GameObject:
   - component: {fileID: 1660407886}
   - component: {fileID: 1660407885}
   - component: {fileID: 1660407884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3682,7 +3685,7 @@ GameObject:
   - component: {fileID: 1825359759}
   - component: {fileID: 1825359758}
   - component: {fileID: 1825359757}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3787,7 +3790,7 @@ GameObject:
   - component: {fileID: 1827717347}
   - component: {fileID: 1827717346}
   - component: {fileID: 1827717345}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3891,7 +3894,7 @@ GameObject:
   - component: {fileID: 1837481217}
   - component: {fileID: 1837481218}
   - component: {fileID: 1837481219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Herb1 (Root)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4243,7 +4246,7 @@ GameObject:
   - component: {fileID: 1890365760}
   - component: {fileID: 1890365759}
   - component: {fileID: 1890365758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Well Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22627,7 +22630,7 @@ GameObject:
   - component: {fileID: 1980487633}
   - component: {fileID: 1980487632}
   - component: {fileID: 1980487631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cauldron Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40379,7 +40382,7 @@ GameObject:
   - component: {fileID: 2051042901}
   - component: {fileID: 2051042900}
   - component: {fileID: 2051042899}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

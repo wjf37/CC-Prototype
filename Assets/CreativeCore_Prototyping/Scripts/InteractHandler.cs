@@ -12,13 +12,15 @@ public class InteractHandler : MonoBehaviour
     [FormerlySerializedAs("InteractableIcone")]
     public Sprite InteractablePointer;
     public Sprite NormalPointer;
+    public LayerMask layerMask;
     [SerializeField] InventorySys inv;
     [SerializeField] GameObject uiBar;
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
     private float rayLength = 2.0f;
-    bool displayInteractable = false;
+    private bool interactableHit = false;
+    private OnInteract onInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -47,16 +49,20 @@ public class InteractHandler : MonoBehaviour
         //If the player is pointing at an object in range to be interacted with the object gets added to a list of targets that can be interacted with.
         //
         ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
-        OnInteract[] targets = null;
+        //OnInteract[] targets = null;
         RaycastHit hit;
 
-        displayInteractable = false;
-        if (Physics.Raycast(ray, out hit, rayLength))
+        interactableHit = false;
+        if (Physics.Raycast(ray, out hit, rayLength, layerMask))
         {
-            var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
+            interactableHit = true;
+            onInteract = hit.collider.gameObject.GetComponent<OnInteract>();
             //oninteract will need different versions for herbs and the tools
 
-            if (interacts.Length > 0)
+            m_PointerImage.sprite = InteractablePointer;
+            m_PointerImage.transform.localScale = m_OriginalPointerSize * 2.0f;
+
+            /*if (interacts.Length > 0)
             {
                 displayInteractable = true;
                 targets = interacts;
@@ -70,14 +76,9 @@ public class InteractHandler : MonoBehaviour
                         break;
                     }
                 }
-            }
+            }*/
         }
-        
-        if (displayInteractable)
-        {
-            m_PointerImage.sprite = InteractablePointer;
-            m_PointerImage.transform.localScale = m_OriginalPointerSize * 2.0f;
-        }
+
         else
         {
             m_PointerImage.sprite = NormalPointer;
@@ -93,23 +94,9 @@ public class InteractHandler : MonoBehaviour
         it will make it easier in the future to implement something like this well. Whereas I would just continuously be using a less efficient
         method to save time now.*/
     
-        OnInteract[] targets = null;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, rayLength))
+        if (interactableHit)
         {
-            var interacts = hit.collider.gameObject.GetComponentsInChildren<OnInteract>();
-            targets = interacts;
-            
-            if (targets != null && targets.Length > 0)
-            {
-                foreach (var target in targets)
-                {
-                    if(target.isActiveAndEnabled)
-                        target.Interact();
-                }
-            }
+            onInteract.Interact();
         }
     }
 }
