@@ -40,6 +40,7 @@ public class InteractHandler : MonoBehaviour
             m_PointerImage = centerPoint.GetComponent<Image>();
             m_OriginalPointerSize = centerPoint.transform.localScale;
         }
+        inv.InvInit();
         
     }
 
@@ -56,7 +57,7 @@ public class InteractHandler : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayLength, layerMask))
         {
             interactableHit = true;
-            onInteract = hit.collider.gameObject.GetComponent<OnInteract>();
+            onInteract = hit.collider.gameObject.GetComponentInParent<OnInteract>();
             //oninteract will need different versions for herbs and the tools
 
             m_PointerImage.sprite = InteractablePointer;
@@ -84,6 +85,7 @@ public class InteractHandler : MonoBehaviour
             m_PointerImage.sprite = NormalPointer;
             m_PointerImage.color = Color.white;
             m_PointerImage.transform.localScale = m_OriginalPointerSize;
+            onInteract = null;
         }
     }
 
@@ -99,5 +101,44 @@ public class InteractHandler : MonoBehaviour
             onInteract.Interact();
         }
     }
-    
+
+    public bool AddItem(ItemData item)
+    {
+        //find an empty inventory spot that does not go over max item count and add
+        for (int i = 0; i < inv.items.Count; i++)
+        {
+            if (inv.items[i] == null)
+            {
+                inv.items[i] = item;
+                return true;
+            }
+        }
+
+        Debug.Log("Inv Full");
+        return false;  
+    }
+
+    public ItemData RemoveItem(int index)
+    {
+        //selected item from inv/hotbar is removed. This is used when using an item like using an item in a recipe. The item should be transferred to 
+        //wherever it is used like into the cauldron.
+
+        ItemData remItem = inv.items[index];
+        inv.items[index] = null;
+        return remItem;
+    }
+
+    public void DropItem(int index, Transform transform)
+    {
+        //selected item is spawned in a suitable area near player, ideally in front and dropped. This item should have the same properties as it did in the inv
+        //and before it was put into the inv.
+
+        ItemData droppedItem = RemoveItem(index);
+        Instantiate(droppedItem.gameObject, transform);
+    }
+
+    private void OnApplicationQuit()
+    {
+        inv.items.Clear();
+    }
 }

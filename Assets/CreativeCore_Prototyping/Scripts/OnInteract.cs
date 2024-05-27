@@ -7,6 +7,7 @@ public class OnInteract : MonoBehaviour
 {
     public bool isOneShot;
     public float cooldown;
+    public GameObject player;
     [FormerlySerializedAs("onTriggerEnterEvent")]
     public UnityEvent onInteractEvent;
 
@@ -16,6 +17,7 @@ public class OnInteract : MonoBehaviour
     void Start()
     {
         m_Timer = cooldown;
+        player = GameObject.Find("PlayerCapsule");
     }
 
     public virtual void Interact()

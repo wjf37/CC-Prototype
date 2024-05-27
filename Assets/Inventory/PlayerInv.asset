@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PlayerInv
   m_EditorClassIdentifier: 
   maxItems: 5
-  items: []
-  player: {fileID: 0}
-  invBar: {fileID: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
