@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Herb2
   m_EditorClassIdentifier: 
   itemName: Root
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9a0225d919e9c5e4694ec75312df4ca1, type: 3}
   gameObject: {fileID: 0}
   type: 0
   description: A herb valued for its leaves, improves the interaction between ingredients

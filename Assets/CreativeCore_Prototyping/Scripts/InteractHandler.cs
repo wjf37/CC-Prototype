@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Cinemachine.Utility;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -15,12 +16,16 @@ public class InteractHandler : MonoBehaviour
     public LayerMask layerMask;
     [SerializeField] InventorySys inv;
     [SerializeField] GameObject uiBar;
+    [SerializeField] GameObject selectedBar;
     Image m_PointerImage;
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
     private float rayLength = 2.0f;
     private bool interactableHit = false;
     private OnInteract onInteract;
+    private int selectedInvSlot = 0;
+    private RectTransform uiBarRT;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +46,7 @@ public class InteractHandler : MonoBehaviour
             m_OriginalPointerSize = centerPoint.transform.localScale;
         }
         inv.InvInit();
-        
+        uiBarRT = selectedBar.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -110,6 +115,8 @@ public class InteractHandler : MonoBehaviour
             if (inv.items[i] == null)
             {
                 inv.items[i] = item;
+                uiBar.transform.GetChild(i).GetChild(1).GetComponent<Image>().sprite = item.icon;
+                uiBar.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
                 return true;
             }
         }
@@ -125,6 +132,7 @@ public class InteractHandler : MonoBehaviour
 
         ItemData remItem = inv.items[index];
         inv.items[index] = null;
+        uiBar.transform.GetChild(index).GetChild(0).gameObject.SetActive(false);
         return remItem;
     }
 
@@ -136,6 +144,79 @@ public class InteractHandler : MonoBehaviour
         ItemData droppedItem = RemoveItem(index);
         Instantiate(droppedItem.gameObject, transform);
     }
+
+    private void InvBarNav()
+    {
+        if (selectedInvSlot == 0)
+        {
+            selectedBar.SetActive(false);
+        }
+
+        if (selectedInvSlot == 1)
+        {
+            selectedBar.SetActive(true);
+            uiBarRT.anchoredPosition3D = new Vector3(-160f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+
+        if (selectedInvSlot == 2)
+        {
+            selectedBar.SetActive(true);
+            uiBarRT.anchoredPosition3D = new Vector3(-80f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+
+        if (selectedInvSlot == 3)
+        {
+            selectedBar.SetActive(true);
+            uiBarRT.anchoredPosition3D = new Vector3(0f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+
+        if (selectedInvSlot == 4)
+        {
+            selectedBar.SetActive(true);
+            uiBarRT.anchoredPosition3D = new Vector3(80f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+
+        if (selectedInvSlot == 5)
+        {
+            selectedBar.SetActive(true);
+            uiBarRT.anchoredPosition3D = new Vector3(160f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+    }
+
+    private void OnBarSlot1()
+    {
+        if (selectedInvSlot != 1) { selectedInvSlot = 1; }
+        else{ selectedInvSlot = 0;}
+        InvBarNav();
+    } 
+
+    private void OnBarSlot2()
+    {
+        if (selectedInvSlot != 2) { selectedInvSlot = 2; }
+        else{ selectedInvSlot = 0;}
+        InvBarNav();
+    }
+
+    private void OnBarSlot3()
+    {
+        if (selectedInvSlot != 3) { selectedInvSlot = 3; }
+        else{ selectedInvSlot = 0;}
+        InvBarNav();
+    }
+
+    private void OnBarSlot4()
+    {
+        if (selectedInvSlot != 4) { selectedInvSlot = 4; }
+        else{ selectedInvSlot = 0;}
+        InvBarNav();
+    }
+
+    private void OnBarSlot5()
+    {
+        if (selectedInvSlot != 5) { selectedInvSlot = 5; }
+        else{ selectedInvSlot = 0;}
+        InvBarNav();
+    }    
 
     private void OnApplicationQuit()
     {
