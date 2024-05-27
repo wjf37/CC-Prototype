@@ -2071,8 +2071,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  inv: {fileID: 0}
-  uiBar: {fileID: 0}
+  inv: {fileID: 11400000, guid: 1d896ea9b6ce495438b106dda4d4776a, type: 2}
+  uiBar: {fileID: 540676390}
 --- !u!1 &952663927
 GameObject:
   m_ObjectHideFlags: 0
