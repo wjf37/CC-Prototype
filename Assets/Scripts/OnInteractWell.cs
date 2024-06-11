@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnInteractWell : MonoBehaviour
+public class OnInteractWell : OnInteract
 {
-    // Start is called before the first frame update
-    void Start()
+    public MiscItemData water;
+    public override void Interact()
     {
-        
-    }
+        bool itemAdded = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        itemAdded = player.GetComponent<InteractHandler>().AddItem(water);
+
     }
 }

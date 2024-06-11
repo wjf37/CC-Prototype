@@ -21,6 +21,7 @@ public class InteractHandler : MonoBehaviour
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
     private float rayLength = 2.0f;
+    private float distFromPlayer = 0.5f;
     private bool interactableHit = false;
     private OnInteract onInteract;
     private int selectedInvSlot = 0;
@@ -107,6 +108,14 @@ public class InteractHandler : MonoBehaviour
         }
     }
 
+    void OnDropItem()
+    {
+        if (selectedInvSlot != 0)
+        {
+            DropItem(selectedInvSlot, gameObject.transform.position);
+        }
+    }
+
     public bool AddItem(ItemData item)
     {
         //find an empty inventory spot that does not go over max item count and add
@@ -115,8 +124,8 @@ public class InteractHandler : MonoBehaviour
             if (inv.items[i] == null)
             {
                 inv.items[i] = item;
-                uiBar.transform.GetChild(i).GetChild(1).GetComponent<Image>().sprite = item.icon;
-                uiBar.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                uiBar.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = item.icon;
+                uiBar.transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
                 return true;
             }
         }
@@ -136,13 +145,13 @@ public class InteractHandler : MonoBehaviour
         return remItem;
     }
 
-    public void DropItem(int index, Transform transform)
+    public void DropItem(int index, Vector3 playerPos)
     {
         //selected item is spawned in a suitable area near player, ideally in front and dropped. This item should have the same properties as it did in the inv
         //and before it was put into the inv.
-
+        Vector3 dropLoc = playerPos + Vector3.forward * distFromPlayer;
         ItemData droppedItem = RemoveItem(index);
-        Instantiate(droppedItem.gameObject, transform);
+        Instantiate(droppedItem.itemPrefab, dropLoc, Quaternion.identity);
     }
 
     private void InvBarNav()
