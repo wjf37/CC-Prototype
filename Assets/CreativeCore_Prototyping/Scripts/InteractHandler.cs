@@ -21,7 +21,7 @@ public class InteractHandler : MonoBehaviour
     private Vector3 m_OriginalPointerSize;
     private Ray ray;
     private float rayLength = 2.0f;
-    private float distFromPlayer = 0.5f;
+    private float distFromPlayer = 2f;
     private bool interactableHit = false;
     private OnInteract onInteract;
     private int selectedInvSlot = 0;
@@ -138,10 +138,13 @@ public class InteractHandler : MonoBehaviour
     {
         //selected item from inv/hotbar is removed. This is used when using an item like using an item in a recipe. The item should be transferred to 
         //wherever it is used like into the cauldron.
-
-        ItemData remItem = inv.items[index];
-        inv.items[index] = null;
-        uiBar.transform.GetChild(index).GetChild(0).gameObject.SetActive(false);
+        int ind = index - 1;
+        ItemData remItem = inv.items[ind];
+        if (remItem != null)
+        {
+            inv.items[ind] = null;
+            uiBar.transform.GetChild(ind).GetChild(0).gameObject.SetActive(false);
+        }
         return remItem;
     }
 
@@ -149,9 +152,14 @@ public class InteractHandler : MonoBehaviour
     {
         //selected item is spawned in a suitable area near player, ideally in front and dropped. This item should have the same properties as it did in the inv
         //and before it was put into the inv.
-        Vector3 dropLoc = playerPos + Vector3.forward * distFromPlayer;
+        Vector3 rayFwd = new(ray.direction.x, 0.5f, ray.direction.z);
+        Vector3 dropLoc = playerPos + rayFwd * distFromPlayer;
         ItemData droppedItem = RemoveItem(index);
-        Instantiate(droppedItem.itemPrefab, dropLoc, Quaternion.identity);
+
+        if(droppedItem != null)
+        { 
+            Instantiate(droppedItem.itemPrefab, dropLoc, Quaternion.identity);
+        }    
     }
 
     private void InvBarNav()
