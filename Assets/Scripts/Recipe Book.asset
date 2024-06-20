@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf5cf2ee23c2264e9b5b7c5e13955c0, type: 3}
+  m_Name: Recipe Book
+  m_EditorClassIdentifier: 
+  recipeBook:
+  - name: Minor Health Potion
+    item1: {fileID: 11400000, guid: 7adca6744af61c541a8a65098ad0b31d, type: 2}
+    item2: {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}
+    item3: {fileID: 11400000, guid: e96232eeba6261c41ba20d373589f09b, type: 2}
+    water: {fileID: 11400000, guid: 8c78b5fb9086dc04dbd9f240f48c2e30, type: 2}
+    potion: {fileID: 11400000, guid: 87c8657883b43b545a5574e1e81e6db2, type: 2}
