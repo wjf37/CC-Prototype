@@ -11,6 +11,6 @@ public class Recipe
     public ItemData item1;
     public ItemData item2;
     public ItemData item3;
-    public MiscItemData water;
+    public ItemData water;
     public PotionItemData potion;
 }

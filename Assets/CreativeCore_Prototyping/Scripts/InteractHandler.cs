@@ -24,7 +24,8 @@ public class InteractHandler : MonoBehaviour
     private float distFromPlayer = 2f;
     private bool interactableHit = false;
     private OnInteract onInteract;
-    private int selectedInvSlot = 0;
+    public int selectedInvSlot = 0;
+    public bool invSlotFilled;
     private RectTransform uiBarRT;
 
 
@@ -167,11 +168,13 @@ public class InteractHandler : MonoBehaviour
         if (selectedInvSlot == 0)
         {
             selectedBar.SetActive(false);
+            invSlotFilled = false;
         }
 
         if (selectedInvSlot == 1)
         {
             selectedBar.SetActive(true);
+            
             uiBarRT.anchoredPosition3D = new Vector3(-160f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
         }
 
@@ -197,6 +200,11 @@ public class InteractHandler : MonoBehaviour
         {
             selectedBar.SetActive(true);
             uiBarRT.anchoredPosition3D = new Vector3(160f, uiBarRT.anchoredPosition3D.y, uiBarRT.anchoredPosition3D.z);
+        }
+        if (selectedInvSlot != 0)
+        {
+            if (inv.items[selectedInvSlot-1] != null) {invSlotFilled = true;}
+            else {invSlotFilled = false;}
         }
     }
 
