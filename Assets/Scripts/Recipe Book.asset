@@ -17,5 +17,5 @@ MonoBehaviour:
     item1: {fileID: 11400000, guid: 7adca6744af61c541a8a65098ad0b31d, type: 2}
     item2: {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}
     item3: {fileID: 11400000, guid: e96232eeba6261c41ba20d373589f09b, type: 2}
-    water: {fileID: 11400000, guid: 8c78b5fb9086dc04dbd9f240f48c2e30, type: 2}
+    water: 1
     potion: {fileID: 11400000, guid: 87c8657883b43b545a5574e1e81e6db2, type: 2}

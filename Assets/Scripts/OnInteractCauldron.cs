@@ -25,7 +25,7 @@ public class OnInteractCauldron : OnInteract
             Instantiate(remItem.itemPrefab, gameObject.transform);
             if (remItem.itemName == "Water")
             {
-                currentRecipe.water = remItem;
+                currentRecipe.water = true;
             }
         }
 
