@@ -10,8 +10,9 @@ public class OnInteractCauldron : OnInteract
     List<ItemData> addedItems = new();
     int itemsNum = 0;
     Transform cauldronItems;
-    void Start()
+    public override void Start()
     {
+        base.Start();
         interactHandler = player.GetComponent<InteractHandler>();
         cauldronItems = transform.GetChild(1);
     }
@@ -32,6 +33,7 @@ public class OnInteractCauldron : OnInteract
             {
                 currentRecipe.water = true;
                 cauldronItems.GetChild(0).gameObject.SetActive(true);
+                interactHandler.RemoveItem(interactHandler.selectedInvSlot);
             }
 
             else if (remItem.itemName != "Water" && itemsNum < 3)
@@ -50,7 +52,13 @@ public class OnInteractCauldron : OnInteract
 
         else if (!interactHandler.invSlotFilled && itemsNum > 0) //if there are items currently in the cauldron and free inventory slots take out the last item put into the cauldron.
         {
-
+            ItemData caulItem = cauldronItems.GetChild(itemsNum).GetChild(0).gameObject.GetComponent<OnInteractIngredient>().ingredient;
+            itemAdded = player.GetComponent<InteractHandler>().AddItem(caulItem);
+            if (itemAdded)
+            {
+                Destroy(cauldronItems.GetChild(itemsNum).GetChild(0).gameObject);
+                itemsNum --;
+            }
         }
     }
 

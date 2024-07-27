@@ -127,6 +127,11 @@ public class InteractHandler : MonoBehaviour
                 inv.items[i] = item;
                 uiBar.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = item.icon;
                 uiBar.transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                //if inv slot == selected slot then invslot filled
+                if (i + 1 == selectedInvSlot)
+                {
+                    invSlotFilled = true;
+                }
                 return true;
             }
         }
@@ -145,6 +150,7 @@ public class InteractHandler : MonoBehaviour
         {
             inv.items[ind] = null;
             uiBar.transform.GetChild(ind).GetChild(0).gameObject.SetActive(false);
+            invSlotFilled = false;
         }
         return remItem;
     }

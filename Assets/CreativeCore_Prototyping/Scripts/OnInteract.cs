@@ -14,7 +14,7 @@ public class OnInteract : MonoBehaviour
     //bool m_HasBeenTriggered;
     //float m_Timer;
 
-    void Start()
+    public virtual void Start()
     {
         //m_Timer = cooldown;
         player = GameObject.Find("PlayerCapsule");
