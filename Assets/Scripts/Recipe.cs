@@ -8,9 +8,7 @@ using UnityEngine;
 public class Recipe
 {
     public string name;
-    public ItemData item1;
-    public ItemData item2;
-    public ItemData item3;
+    public List<ItemData> itemList = new();
     public bool water = false;
     public PotionItemData potion;
 }

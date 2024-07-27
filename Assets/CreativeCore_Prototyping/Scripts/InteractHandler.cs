@@ -163,6 +163,13 @@ public class InteractHandler : MonoBehaviour
         }    
     }
 
+    public ItemData GetSelItem(int index)
+    {
+        int ind = index - 1;
+        ItemData selItem = inv.items[ind];
+        return selItem;
+    }
+
     private void InvBarNav()
     {
         if (selectedInvSlot == 0)
