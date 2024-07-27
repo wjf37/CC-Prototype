@@ -62,7 +62,7 @@ public class OnInteractCauldron : OnInteract
         }
     }
 
-    private void ResetRecipe()
+    public void ResetRecipe()
     {
         currentRecipe = new();
         itemsNum = 0;
