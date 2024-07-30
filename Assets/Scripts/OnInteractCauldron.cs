@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class OnInteractCauldron : OnInteract
 {
-    InteractHandler interactHandler;
-    Recipe currentRecipe = new();
-    List<ItemData> addedItems = new();
-    int itemsNum = 0;
-    Transform cauldronItems;
+    private InteractHandler interactHandler;
+    public Recipe currentRecipe = new();
+    private int itemsNum = 0;
+    private Transform cauldronItems;
     public override void Start()
     {
         base.Start();
