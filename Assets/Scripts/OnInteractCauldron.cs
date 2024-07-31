@@ -9,11 +9,13 @@ public class OnInteractCauldron : OnInteract
     public Recipe currentRecipe = new();
     private int itemsNum = 0;
     private Transform cauldronItems;
+    private Transform potionPos;
     public override void Start()
     {
         base.Start();
         interactHandler = player.GetComponent<InteractHandler>();
         cauldronItems = transform.GetChild(1);
+        potionPos = cauldronItems.GetChild(4);
     }
 
     public override void Interact()
@@ -73,5 +75,10 @@ public class OnInteractCauldron : OnInteract
                 Destroy(cauldronItems.GetChild(i).GetChild(0).gameObject);
             }
         }
+    }
+
+    public void SpawnPotion(PotionItemData potion)
+    {
+        Instantiate(potion.itemPrefab, potionPos);
     }
 }

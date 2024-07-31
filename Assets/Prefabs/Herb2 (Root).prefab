@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5411893926963734214}
   - component: {fileID: 3045900564444291597}
-  - component: {fileID: 8114742660405322231}
+  - component: {fileID: 1315649555492664146}
   m_Layer: 7
   m_Name: Herb2 (Root)
   m_TagString: Untagged
@@ -272,7 +272,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8114742660405322231
+--- !u!114 &1315649555492664146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,8 +281,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6377811634347671398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5376058f4be26844d983f977f4b87554, type: 3}
+  m_Script: {fileID: 11500000, guid: 571610d7960256e48846dc7d4a2235d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  ingredient: {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}
+  item: {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}

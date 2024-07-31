@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf5cf2ee23c2264e9b5b7c5e13955c0, type: 3}
   m_Name: Recipe Book
   m_EditorClassIdentifier: 
-  recipeBook:
-  - name: Minor Health Potion
+  recipeList:
+  - name: Basic Healing Potion
     itemList:
     - {fileID: 11400000, guid: 7adca6744af61c541a8a65098ad0b31d, type: 2}
     - {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}

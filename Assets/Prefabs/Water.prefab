@@ -17671,7 +17671,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 587
+  m_VersionIndex: 590
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -17758,7 +17758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6547653401456606144}
   - component: {fileID: 3021714898097542737}
-  - component: {fileID: 2050323213139649196}
+  - component: {fileID: 2694594287666936774}
   m_Layer: 7
   m_Name: Water
   m_TagString: Untagged
@@ -17809,7 +17809,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2050323213139649196
+--- !u!114 &2694594287666936774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17818,13 +17818,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8779283752346718693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5a7199f5672c64facbead380bfc10e, type: 3}
+  m_Script: {fileID: 11500000, guid: 571610d7960256e48846dc7d4a2235d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOneShot: 0
-  cooldown: 0
   player: {fileID: 0}
-  onInteractEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  misc: {fileID: 11400000, guid: 8c78b5fb9086dc04dbd9f240f48c2e30, type: 2}
+  item: {fileID: 11400000, guid: 8c78b5fb9086dc04dbd9f240f48c2e30, type: 2}
