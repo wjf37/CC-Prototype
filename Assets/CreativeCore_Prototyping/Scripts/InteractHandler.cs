@@ -165,7 +165,8 @@ public class InteractHandler : MonoBehaviour
 
         if(droppedItem != null)
         { 
-            Instantiate(droppedItem.itemPrefab, dropLoc, Quaternion.identity);
+            GameObject dropped = Instantiate(droppedItem.itemPrefab, dropLoc, Quaternion.identity);
+            dropped.GetComponent<Rigidbody>().isKinematic = false;
         }    
     }
 

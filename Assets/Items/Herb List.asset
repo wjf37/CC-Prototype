@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2171256d30dbb499cdd78af3a9be30, type: 3}
+  m_Name: Herb List
+  m_EditorClassIdentifier: 
+  itemList:
+  - {fileID: 11400000, guid: 7adca6744af61c541a8a65098ad0b31d, type: 2}
+  - {fileID: 11400000, guid: 3a3a333c57acffc4f8d3cc6abf38ed4a, type: 2}
+  - {fileID: 11400000, guid: e96232eeba6261c41ba20d373589f09b, type: 2}

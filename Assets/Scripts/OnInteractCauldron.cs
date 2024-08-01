@@ -47,7 +47,8 @@ public class OnInteractCauldron : OnInteract
             if (itemAdded)
             {
                 remItem = interactHandler.RemoveItem(interactHandler.selectedInvSlot);
-                Instantiate(remItem.itemPrefab, cauldronItems.GetChild(itemsNum));
+                GameObject addedItem = Instantiate(remItem.itemPrefab, cauldronItems.GetChild(itemsNum));
+                addedItem.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
 
