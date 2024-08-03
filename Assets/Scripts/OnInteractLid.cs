@@ -8,7 +8,6 @@ public class OnInteractLid : OnInteract
 {
     private OnInteractCauldron cauldronScript;
     private Recipe cauldronRecipe;
-    private bool isBrewing = false;
     [SerializeField] Transform GlidPos;//ground
     [SerializeField] Transform ClidPos;//cauldron
     [SerializeField] PotionItemData trashPotion; 
